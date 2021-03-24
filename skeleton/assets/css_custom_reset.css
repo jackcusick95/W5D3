@@ -56,6 +56,32 @@ aside {
   width: 180px;
   display: inline-block;
   margin-right: 15px;
+  vertical-align: top;
+}
+
+.ingredients-list li {
+  margin: 15px 0px 15px;
+}
+
+ol > li {
+   margin: 15px 0px 15px;
+}
+
+label {
+  display: none;
+  display: block;
+}
+
+select {
+  margin: 10px 0px 10px;
+}
+
+input {
+  width: 120px;
+}
+
+textarea {
+  width: 0px;
 }
 
 
