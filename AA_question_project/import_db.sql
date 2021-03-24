@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users ( 
     id INTEGER PRIMARY KEY,
     fname TEXT NOT NULL,
-    lname TEXT NOT NULL,
+    lname TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS questions;
@@ -20,7 +20,7 @@ CREATE TABLE questions (
 DROP TABLE IF EXISTS question_follows;
 
 CREATE TABLE question_follows ( 
-    id INTEGER PRIMARY KEY 
+    id INTEGER PRIMARY KEY, 
     question_id INTEGER NOT NULL,
     users_id INTEGER NOT NULL,
     FOREIGN KEY (question_id) REFERENCES questions(id),
@@ -36,7 +36,7 @@ CREATE TABLE replies (
     parent_reply_id INTEGER, 
     FOREIGN KEY(question_id) REFERENCES questions(id),
     FOREIGN KEY(user_reply_id) REFERENCES users(id),
-    FOREIGN KEY(parent_reply_id) REFERENCES replies(id),
+    FOREIGN KEY(parent_reply_id) REFERENCES replies(id)
 );
 
 DROP TABLE IF EXISTS question_likes;
@@ -52,24 +52,24 @@ CREATE TABLE question_likes (
 INSERT INTO 
     users (id, fname, lname)
 VALUES 
-    (1, 'Beyonce', 'Knowles')
+    (1, 'Beyonce', 'Knowles');
 
 INSERT INTO 
     questions (id, title, body, associated_author_id)
 VALUES 
-    (1, 'Beyonce Question', 'Where''s Jay-Z', 1)
+    (1, 'Beyonce Question', 'Where''s Jay-Z', 1);
 
 INSERT INTO 
-    quesiton_follows (id, question_id, users_id)
+    question_follows (id, question_id, users_id)
 VALUES 
-    (1, 1, 1)
+    (1, 1, 1);
 
 INSERT INTO 
-    replies (id, quesiton_id, user_reply_id, parent_reply_id)
+    replies (id, question_id, user_reply_id, parent_reply_id)
 VALUES 
-    (1, 1, 1)
+    (1, 1, 1, NULL);
 
 INSERT INTO 
-    quesiton_likes (id, liked_quesiton_id, liked_user_id)
+    question_likes (id, liked_question_id, liked_users_id)
 VALUES 
-    (1, 1, 1)
+    (1, 1, 1);
